@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#b84f17" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Хурма вяжет" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Хурма вяжет</title>
+    <script type="module" crossorigin src="/assets/index-Yjr8w0Yu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-huLsHget.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // Страховка от белого экрана: если приложение не запустилось за 12 секунд (скрипт не
+      // загрузился или упал), объяснить и дать сбросить сохранённую копию приложения.
+      // localStorage (образцы, планы) не трогаем.
+      setTimeout(function () {
+        if (window.__knitStarted) return;
+        var app = document.getElementById('app');
+        app.innerHTML =
+          '<div style="max-width:420px;margin:48px auto;padding:0 20px;font:16px/1.5 -apple-system,sans-serif;color:#2b2420">' +
+          '<h1 style="font-size:22px">Хурма не загрузилась</h1>' +
+          '<p>Похоже, интернет медленный или сайт не дошёл целиком. Кнопка ниже сбросит сохранённую копию приложения и загрузит его заново. Ваши образцы и планы останутся.</p>' +
+          '<button id="knit-fix" style="width:100%;padding:16px;margin-top:12px;border:0;border-radius:12px;background:#b84f17;color:#fff;font-size:18px;font-weight:600">Починить</button></div>';
+        document.getElementById('knit-fix').onclick = function () {
+          var jobs = [];
+          if ('serviceWorker' in navigator)
+            jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
+              return Promise.all(rs.map(function (r) { return r.unregister(); }));
+            }));
+          if (window.caches)
+            jobs.push(caches.keys().then(function (ks) {
+              return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+            }));
+          Promise.all(jobs).catch(function () {}).then(function () { location.reload(); });
+        };
+      }, 12000);
+    </script>
+  </body>
+</html>

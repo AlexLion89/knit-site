@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#fcf1e3"/>
+  <defs>
+    <clipPath id="fruit"><ellipse cx="256" cy="292" rx="168" ry="150"/></clipPath>
+  </defs>
+  <!-- плод-клубок -->
+  <ellipse cx="256" cy="292" rx="168" ry="150" fill="#e8742a"/>
+  <g clip-path="url(#fruit)" fill="none" stroke="#f7b27a" stroke-width="13" stroke-linecap="round">
+    <path d="M70 250C170 260 300 330 360 470"/>
+    <path d="M80 330C170 340 250 390 280 480"/>
+    <path d="M110 180C230 200 380 300 440 420"/>
+    <path d="M220 150C320 180 420 240 460 330"/>
+    <path d="M110 420C200 330 320 240 400 170"/>
+  </g>
+  <ellipse cx="256" cy="292" rx="168" ry="150" fill="none" stroke="#c75a17" stroke-width="10"/>
+  <!-- чашечка -->
+  <g fill="#4e7a3a">
+    <path d="M256 158C220 120 160 118 132 140C170 160 210 170 256 172Z"/>
+    <path d="M256 158C292 120 352 118 380 140C342 160 302 170 256 172Z"/>
+    <path d="M256 166C236 196 196 214 168 208C186 182 220 168 256 166Z"/>
+    <path d="M256 166C276 196 316 214 344 208C326 182 292 168 256 166Z"/>
+  </g>
+  <path d="M256 162C256 140 262 116 278 98" fill="none" stroke="#3b5e2b" stroke-width="14" stroke-linecap="round"/>
+  <!-- хвостик нити -->
+  <path d="M400 360C430 390 440 430 470 448" fill="none" stroke="#e8742a" stroke-width="12" stroke-linecap="round"/>
+</svg>

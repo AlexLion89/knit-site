@@ -10,9 +10,16 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Хурма вяжет</title>
-    <script type="module" crossorigin src="/assets/index-CYZHhnop.js"></script>
+    <script>
+      // Тема — до первой отрисовки, чтобы тёмная не мигала белым (сам выбор — src/lib/theme.svelte.ts).
+      try {
+        var mode = JSON.parse(localStorage.getItem('knit.theme') || '{}').mode;
+        if (mode === 'dark' || mode === 'light') document.documentElement.dataset.theme = mode;
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="/assets/index-5CSvPd9q.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/es-DANNhuHq.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-iDNBVPdA.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CXMiVLOi.css">
   <link rel="manifest" href="/manifest.webmanifest"></head>
   <body>
     <div id="app"></div>
